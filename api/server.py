@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO,
 app = Flask(__name__, static_folder='../dist')
 
 # Replace with your actual Gemini API key
-API_KEY = "AIzaSyDtFLUrAZC6WDi5-entZum3dsHjpO-A9XY"
+API_KEY = "YOUR_CODE"
 
 def get_common_flight_path(start_airport_code, destination_airport_code):
     """
