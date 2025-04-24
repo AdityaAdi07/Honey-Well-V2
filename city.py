@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.ERROR,
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     handlers=[logging.StreamHandler(sys.stderr)])
 
-API_KEY = "AIzaSyDtFLUrAZC6WDi5-entZum3dsHjpO-A9XY"  
+API_KEY = "YOUR_API"  
 
 def get_common_flight_path(start_airport_code, destination_airport_code):
     """
