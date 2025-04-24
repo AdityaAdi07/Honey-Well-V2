@@ -101,7 +101,7 @@ A powerful, responsive web application designed to visualize and assess weather 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/FlightWeatherAssessment.git
+git clone https://github.com/AdityaAdi07/Honey-Well-V2.git
 pip install -r requirements.txt
 cd FlightWeatherAssessment/api/ python server.py
 GEMINI_API_KEY=your_gemini_api_key_here
@@ -136,11 +136,7 @@ npm run dev
 
 ---
 
-## 📃 License
 
-Licensed under the **MIT License**. Free for personal and educational use.
-
----
 
 ## 🙏 Acknowledgements
 
@@ -150,5 +146,7 @@ Licensed under the **MIT License**. Free for personal and educational use.
 - Open source contributors and weather API docs
 
 ---
+
+
 
 
