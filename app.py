@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.ERROR,
                     handlers=[logging.StreamHandler(sys.stderr)])
 
 # Replace with your actual Gemini API key
-API_KEY = "AIzaSyDtFLUrAZC6WDi5-entZum3dsHjpO-A9XY"  
+API_KEY = "YOUR_API"  
 
 def get_common_flight_path(start_airport_code, destination_airport_code):
     """
