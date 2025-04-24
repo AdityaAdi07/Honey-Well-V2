@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Flight Weather Assessment Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-plane"></i>
+                <div>
+                    <h1>Flight Weather Insight</h1>
+                    <div class="tagline">Safe Flying Through Better Weather Intelligence</div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="utc-time">
+                    <i class="far fa-clock"></i>
+                    <span id="utcTime">00:00:00 UTC</span>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+        
+        <div class="alert-banner" id="alertBanner">
+            <div>
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="alertMessage">⚠ Severe Weather Alert: Loading weather data...</span>
+            </div>
+            <button id="closeAlert"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="input-section">
+            <div class="form-group">
+                <label for="srcCity">Source City (IATA Code)</label>
+                <input type="text" id="srcCity" placeholder="e.g., DEL for Delhi">
+                <div class="help-text">Enter the IATA code for the source city (e.g., DEL for Delhi, BOM for Mumbai)</div>
+            </div>
+            <div class="form-group">
+                <label for="destCity">Destination City (IATA Code)</label>
+                <input type="text" id="destCity" placeholder="e.g., BOM for Mumbai">
+                <div class="help-text">Enter the IATA code for the destination city (e.g., DEL for Delhi, BOM for Mumbai)</div>
+            </div>
+            <button class="button" id="submitBtn">
+                <i class="fas fa-search"></i>
+                Get Weather Information
+            </button>
+        </div>
+        
+        <div class="loading-container" id="loadingContainer">
+            <div class="loader"></div>
+            <p>Processing flight path and weather data...</p>
+        </div>
+        
+        <div class="results-container" id="resultsContainer">
+            <div class="results-section">
+                <h2 class="section-title">
+                    <i class="fas fa-cloud-sun"></i>
+                    Weather Results
+                </h2>
+                
+                <div class="flight-summary">
+                    <div class="summary-item">
+                        <i class="fas fa-plane-departure summary-icon"></i>
+                        <div class="summary-label">Cities En Route</div>
+                        <div class="summary-value" id="cityCount">0</div>
+                    </div>
+                    <div class="summary-item">
+                        <i class="fas fa-cloud summary-icon"></i>
+                        <div class="summary-label">Weather Status</div>
+                        <div class="summary-value" id="weatherStatus">Checking...</div>
+                    </div>
+                    <div class="summary-item">
+                        <i class="fas fa-exclamation-triangle summary-icon"></i>
+                        <div class="summary-label">Risk Assessment</div>
+                        <div class="summary-value" id="riskAssessment">Analyzing...</div>
+                    </div>
+                </div>
+                
+                <div class="weather-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--success);"></div>
+                        <span>Low Risk - Safe</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--warning);"></div>
+                        <span>Moderate Risk - Caution</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--danger);"></div>
+                        <span>High Risk - Dangerous</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Flight Progress</h3>
+                    <div class="progress-tracker" id="progressTracker"></div>
+                    <div class="airports-container" id="airportsContainer"></div>
+                </div>
+                
+                <div class="actions-container">
+                    <button class="button button-secondary" id="downloadPdfBtn">
+                        <i class="fas fa-file-pdf"></i>
+                        Download PDF Report
+                    </button>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>ICAO Code</th>
+                            <th>Weather</th>
+                            <th>Risk Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="weatherTable">
+                        <!-- Table rows will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="map-section">
+                <h2 class="section-title">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Flight Route Details
+                </h2>
+                
+                <div class="route-info">
+                    <div class="route-endpoints">
+                        <div class="endpoint">
+                            <i class="fas fa-plane-departure"></i>
+                            <span id="departureCity">Source</span>
+                        </div>
+                        <div class="route-line"></div>
+                        <div class="endpoint">
+                            <i class="fas fa-plane-arrival"></i>
+                            <span id="arrivalCity">Destination</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weather-details">
+                    <h3>Detailed Weather Information</h3>
+                    <div id="detailedWeather" class="detailed-weather">
+                        <!-- Detailed weather cards will be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="/src/js/app.js"></script>
+</body>
+</html>
